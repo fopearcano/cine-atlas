@@ -1,0 +1,11 @@
+{
+  "name": "cine-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A visual atlas of world cinema organised by concepts, values and connections.",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "validate": "node scripts/validate-data.js"
+  },
+  "license": "MIT"
+}
