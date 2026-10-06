@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cine Atlas</title>
+  <meta name="description" content="A visual atlas of world cinema, organised by concepts and values, highlighting the connections between films across cultures.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%23e9dfc6' stroke-width='2'/%3E%3Ccircle cx='16' cy='9' r='3' fill='%23e9dfc6'/%3E%3Ccircle cx='9' cy='19' r='3' fill='%23e9dfc6'/%3E%3Ccircle cx='23' cy='19' r='3' fill='%23e9dfc6'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn only-mobile" id="toggle-lens" aria-label="Show lenses" aria-controls="lens" aria-expanded="false">☰</button>
+    <div class="brand">
+      <h1>Cine Atlas</h1>
+      <p>World cinema through concepts, values &amp; connections</p>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Views">
+      <button role="tab" data-view="constellation" aria-selected="true">Constellation</button>
+      <button role="tab" data-view="world">World</button>
+      <button role="tab" data-view="time">Time</button>
+      <button role="tab" data-view="concepts">Concepts</button>
+      <button role="tab" data-view="patterns">Patterns</button>
+      <button role="tab" data-view="index">Index</button>
+    </nav>
+    <div class="search">
+      <input id="search" type="search" placeholder="Find a film or director…" list="film-list" autocomplete="off" aria-label="Find a film or director">
+      <datalist id="film-list"></datalist>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="lens" id="lens" aria-label="Lenses and filters">
+      <section>
+        <h2>Journeys</h2>
+        <p class="hint">Curated paths across cultures.</p>
+        <ul class="journey-list" id="journey-list"></ul>
+      </section>
+      <section>
+        <h2>Concepts <span class="hint-inline">all selected</span></h2>
+        <div class="chips" id="concept-chips"></div>
+      </section>
+      <section>
+        <h2>Values at stake <span class="hint-inline">all selected</span></h2>
+        <div class="chips" id="value-chips"></div>
+      </section>
+      <section>
+        <h2>Regions <span class="hint-inline">any selected</span></h2>
+        <div class="chips" id="region-chips"></div>
+      </section>
+      <section>
+        <h2>Era</h2>
+        <div class="era">
+          <label>From <input type="number" id="year-min" min="1910" max="2030" step="1"></label>
+          <label>to <input type="number" id="year-max" min="1910" max="2030" step="1"></label>
+        </div>
+        <div class="decades" id="decades"></div>
+      </section>
+      <section>
+        <h2>Connections</h2>
+        <div class="link-types" id="link-types"></div>
+      </section>
+      <section class="lens-foot">
+        <span id="match-count"></span>
+        <button class="text-btn" id="reset">Reset all</button>
+      </section>
+    </aside>
+
+    <main class="stage" id="stage" aria-live="polite">
+      <div class="view-caption" id="view-caption"></div>
+      <div class="view" id="view"></div>
+    </main>
+
+    <aside class="detail" id="detail" aria-label="Details"></aside>
+  </div>
+
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+  <script src="vendor/d3.min.js"></script>
+  <script src="vendor/topojson-client.min.js"></script>
+  <script src="vendor/world-110m.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/atlas.js"></script>
+  <script src="js/views/constellation.js"></script>
+  <script src="js/views/world.js"></script>
+  <script src="js/views/time.js"></script>
+  <script src="js/views/concepts.js"></script>
+  <script src="js/views/patterns.js"></script>
+  <script src="js/views/index.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
